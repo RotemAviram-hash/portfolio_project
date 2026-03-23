@@ -1,80 +1,93 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full Stack Beast</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotem Aviram | CSS Only Portfolio</title>
+    <link href="style.css" rel="stylesheet">
+    
 </head>
 <body>
 
-<header>
-  <h1>DEV BEAST</h1>
-  <nav>
-    <a href="#about">אודות</a>
-    <a href="#skills">יכולות</a>
-    <a href="#projects">פרויקטים</a>
-    <a href="#contact">צור קשר</a>
-  </nav>
-</header>
+    <nav>
+        <div class="logo">ROTEM<span>.</span>A</div>
+        <ul>
+            <li><a href="#home">בית</a></li>
+            <li><a href="#projects">פרויקטים</a></li>
+            <li><a href="#about">אודות</a></li>
+        </ul>
+    </nav>
 
-<section class="hero">
-  <h2>אני בונה דברים שאנשים לא מבינים איך הם עובדים.</h2>
-  <p>Full Stack Developer | UI Master | Problem Solver</p>
-  <a href="#projects" class="btn">צפה בעבודות</a>
-</section>
+    <section id="home" class="hero">
+        <h1>פיתוח <span class="highlight">לוגי</span>,<br>חוויה נקייה.</h1>
+        <p>מתכנתת Fullstack עם תשוקה לדיוק, תשתיות IT ופתרונות אלגנטיים. הופכת קוד מורכב לממשק פשוט.</p>
+        <a href="#projects" class="contact-btn" style="width: fit-content;">צפייה בעבודות</a>
+    </section>
 
-<section id="about" class="about">
-  <h2>מי אני?</h2>
-  <p>
-    מתכנת שחי קוד. מתמחה בבניית מערכות מהירות, נקיות ומדויקות.
-    אוהב אתגרים, ביצועים, ועיצוב מינימליסטי.
-  </p>
-</section>
+    <section id="projects" class="projects">
+        <div class="section-header">
+            <h2>פרויקטים נבחרים</h2>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="card">
+                <div>
+                    <span class="project-tag">Fullstack</span>
+                    <h3>מערכת ניהול נתונים</h3>
+                    <p>אפליקציה לניהול וניתוח נתונים בזמן אמת עם דאשבורד אינטראקטיבי.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <span class="project-tag">Networking</span>
+                    <h3>Infrastructure Logic</h3>
+                    <p>אופטימיזציה של תהליכי רשת ופתרון תקלות תשתית מורכבות.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <span class="project-tag">UI/UX Design</span>
+                    <h3>Portfolio Concept</h3>
+                    <p>עיצוב ממשק מינימליסטי הממוקד בנגישות וחוויית משתמש חלקה.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <span class="project-tag">Backend</span>
+                    <h3>API Security Tool</h3>
+                    <p>כלי לאבטחת ממשקי תכנות וניטור גישות לא מורשות במערכת.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <span class="project-tag">Automation</span>
+                    <h3>Deep Work Helper</h3>
+                    <p>בוט לאוטומציה של משימות חוזרות להגברת הפרודוקטיביות בעבודה.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <span class="project-tag">Logic</span>
+                    <h3>Algorithm Search</h3>
+                    <p>פיתוח מנוע חיפוש פנימי המבוסס על לוגיקה חכמה וסינון נתונים מהיר.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="skills" class="skills">
-  <h2>יכולות</h2>
-  <div class="skill">
-    <span>HTML</span>
-    <div class="bar"><div class="progress html"></div></div>
-  </div>
-  <div class="skill">
-    <span>CSS</span>
-    <div class="bar"><div class="progress css"></div></div>
-  </div>
-  <div class="skill">
-    <span>UI/UX</span>
-    <div class="bar"><div class="progress ui"></div></div>
-  </div>
-</section>
+    <section id="about" class="about">
+        <div class="about-box">
+            <h2>מי אני?</h2>
+            <p>השילוב בין הרקע הטכני שלי מעולם ה-IT לבין פיתוח התוכנה מאפשר לי לבנות מוצרים שהם לא רק יפים, אלא גם יציבים וחזקים ברמת התשתית.</p>
+            <p>אני אוהבת לפתור בעיות לוגיות, לכתוב קוד נקי וללמוד טכנולוגיות חדשות כל יום.</p>
+        </div>
+    </section>
 
-<section id="projects" class="projects">
-  <h2>פרויקטים</h2>
-  <div class="project-grid">
-    <div class="card">
-      <h3>Project One</h3>
-      <p>מערכת דינמית לניהול משימות.</p>
-    </div>
-    <div class="card">
-      <h3>Project Two</h3>
-      <p>דף נחיתה ממיר במיוחד.</p>
-    </div>
-    <div class="card">
-      <h3>Project Three</h3>
-      <p>Dashboard מודרני עם UI נקי.</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <h2>צור קשר</h2>
-  <p>email@example.com</p>
-</section>
-
-<footer>
-  <p>© 2026 DEV BEAST</p>
-</footer>
+    <footer>
+        <h2 style="margin-bottom: 2.5rem; font-size: 2.5rem; letter-spacing: -1px;">בואו נבנה משהו יחד</h2>
+        <a href="mailto:your@email.com" class="contact-btn">שלחו לי מייל</a>
+        <p style="margin-top: 4rem; color: var(--gray-text); font-size: 0.8rem; font-weight: 300;">© 2026 רותם אבירם | מפתחת עם דגש על אסתטיקה ודיוק</p>
+    </footer>
 
 </body>
 </html>
