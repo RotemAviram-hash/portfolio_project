@@ -57,7 +57,6 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 myMap.on("click", function (event) {
   let lat = event.latlng.lat;
   let lon = event.latlng.lng;
-  console.log(`לחצת על: Lat ${lat}, Lon ${lon}`);
 
   if (currentMarker) {
     myMap.removeLayer(currentMarker);
@@ -76,28 +75,47 @@ createMajorCitiesOnScreen(majorIsraelCities); //הצג הצדדי של הערי�
  * @param {*} _lon קו האורך
  */
 async function fetchWeather(_lat, _lon) {
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${_lat}&longitude=${_lon}&current=temperature_2m,weather_code`;
-  const res = await fetch(url);
-  const data = await res.json();
-  const weatherCode = data.current.weather_code;
+  try {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${_lat}&longitude=${_lon}&current=temperature_2m,weather_code`;
+    const res = await fetch(url);
+    const data = await res.json();
+    const weatherCode = data.current.weather_code;
 
-  const weather = {
-    temperature: data.current.temperature_2m,
-    temperatureUnits: data.current_units.temperature_2m,
-    icon: getWeatherIcone(weatherCode),
-    description: getWeatherDescription(weatherCode),
-  };
+    const weather = {
+      temperature: data.current.temperature_2m,
+      temperatureUnits: data.current_units.temperature_2m,
+      icon: getWeatherIcon(weatherCode),
+      description: getWeatherDescription(weatherCode),
+    };
 
-  editWeather(weather);
+    editWeather(weather);
+  } catch (error) {
+    editWeather(null, true);
+    console.error(error);
+  }
 }
 
 /**
- * משנה את הטקסט מזג האוויר המוצג על המסך למשתמש
+ * משנה את הטקסט מזג האוויר המוצג על המסך למשתמש במידה וזוהה שגיאה מציג טקסט בהתאם
  * @param {*} _weather אובייקט מזג האוויר
+ * @param {*} _error אינדיקטור השגיאה. דיפולטיבי הוא על שלילי, במצב שגיאה מקבל לחיובי
  */
-function editWeather(_weather) {
-  const p = document.getElementById("wether-msg");
-  p.innerText = `מזג האוויר במיקום שבחרת הוא: ${_weather.temperature}${_weather.temperatureUnits} ${_weather.description}${_weather.icon}`;
+function editWeather(_weather, _error = false) {
+  const p = document.getElementById("weather-msg");
+
+  if (!p) return;
+
+  if (_error || !_weather) {
+    p.innerText = "❌ אופס… לא הצלחנו לטעון את מזג האוויר. נסו שוב 🙂";
+    return;
+  }
+
+  const temperature = _weather.temperature ?? "--";
+  const units = _weather.temperatureUnits ?? "";
+  const description = _weather.description ?? "";
+  const icon = _weather.icon ?? "";
+
+  p.innerText = `מזג האוויר במיקום שבחרת הוא: ${temperature}${units} ${description} ${icon}`;
 }
 
 /**
@@ -105,7 +123,7 @@ function editWeather(_weather) {
  * @param {*} _weatherCode קוד מזג האוויר על פי API
  * @returns האייקון שמתאים לקוד שהתקבל
  */
-function getWeatherIcone(_weatherCode) {
+function getWeatherIcon(_weatherCode) {
   switch (_weatherCode) {
     case 0:
       return "☀️"; // שמיים בהירים
