@@ -120,7 +120,6 @@ function appendQuestionAndAnswers(_question) {
     answersContainer.append(answer);
 
     // הוספת מאזין בדיקה לכל תשובה //
-    console.log(correctAnswer);
     answer.addEventListener("click", (event) => {
       if (canPlay()) checkAnswer(answer, possibleAnswer, correctAnswer);
     });

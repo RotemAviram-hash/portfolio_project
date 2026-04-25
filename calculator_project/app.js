@@ -80,8 +80,8 @@ function printLevel(_level) {
   } else {
     currentStage = 0;
     showMsg(
-      `!סיימת את לומדת המתמטיקה בהצלחה <br>
-      <sapn class="muted-text"> |המשחק יתחיל בצורה אוטומטית מחדש ברמת |מתחילים</span> `,
+      `ישר כוח ! סיימת את לומדת המתמטיקה בהצלחה <br>
+      <sapn class="muted-text"> בלחיצה על הכפתור הלומדה תתאפס ותתחיל מהתחלה </span> `,
       true,
     );
     printLevel(data[currentStage]);
